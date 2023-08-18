@@ -14,7 +14,7 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/123")
+    @GetMapping("/greet")
     public GreetResponse greet(){
         GreetResponse response = new GreetResponse(
              "Hello",
