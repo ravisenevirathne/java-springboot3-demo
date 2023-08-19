@@ -1,5 +1,6 @@
 package com.ravi;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,15 @@ public class Main {
             Integer age
 
     ){
+    }
 
+    record UpdateCustomerRequest(
+            Integer id,
+            String name,
+            String email,
+            Integer age
+
+    ){
     }
 
     @PostMapping
@@ -52,7 +61,18 @@ public class Main {
         customerRepository.deleteById(id);
     }
 
-
+    @PutMapping("{customerId}")
+    public void updateCustomer(@PathVariable("customerId") Integer id,@RequestBody UpdateCustomerRequest updaterequest){
+       // customerRepository.findById(id);
+        Customer customer_update = new Customer();
+        customer_update.setId(id);
+        customer_update.setName(updaterequest.name);
+        customer_update.setAge(updaterequest.age);
+        customer_update.setEmail(updaterequest.email);
+        customerRepository.save(customer_update);
+        //customer.setId(id);
+        //customerRepository.save(customer);
+    }
 
     @GetMapping("/greet")
     public GreetResponse greet(){
