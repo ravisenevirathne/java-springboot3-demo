@@ -1,6 +1,6 @@
 # java-springboot3-demo
 
-#### Simple RESTapi app to demonstrate CRUD operations using Java Springboot3, PostgreSQL and Docker
+#### Simple RESTapi app to demonstrate CRUD operations (GET,POST,PUT,DELETE) using Java Springboot3, PostgreSQL and Docker
 
 ![img.png](img.png)
 
